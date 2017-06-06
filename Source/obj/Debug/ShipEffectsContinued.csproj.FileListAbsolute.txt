@@ -1,0 +1,15 @@
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\ShipEffectsContinued.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\ShipEffectsContinued.pdb
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\Assembly-CSharp.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\UnityEngine.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\Assembly-CSharp-firstpass.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\TrackIRUnity.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\UnityEngine.UI.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\KSPAssets.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\Mono.Cecil.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\TDx.TDxInput.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\Mono.Security.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\bin\Debug\UnityEngine.xml
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\obj\Debug\ShipEffectsContinued.csprojResolveAssemblyReference.cache
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\obj\Debug\ShipEffectsContinued.dll
+c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\obj\Debug\ShipEffectsContinued.pdb
