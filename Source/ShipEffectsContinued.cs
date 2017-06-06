@@ -10,15 +10,15 @@ namespace ShipEffectsContinued
     public class SEMaster : MonoBehaviour
     {
         //soundnames
-        string small_rattles = "ShipEffectsContinued/Sounds/clinks";
-        string big_rattles = "ShipEffectsContinuedContinued/Sounds/clanks";
+        string small_rattles = "ShipEffectsContinued/Sounds/small_rattles";
+        string big_rattles = "ShipEffectsContinuedContinued/Sounds/big_rattles";
         string rumble = "ShipEffectsContinued/Sounds/rumble";
-        string vibrations = "ShipEffectsContinued/Sounds/lightrumble";
+        string vibrations = "ShipEffectsContinued/Sounds/vibrations";
         string stress_big = "ShipEffectsContinued/Sounds/metalstress";
-        string atmos_normal = "ShipEffectsContinued/Sounds/wind";
+        string atmos_normal = "ShipEffectsContinued/Sounds/atmo";
 
-        public string thumpLowSound = "ShipEffectsContinued/Sounds/thudlow";
-        public string thumpHeavySound = "ShipEffectsContinued/Sounds/thud";
+        public string thumpLowSound = "ShipEffectsContinued/Sounds/thumplow";
+        public string thumpHeavySound = "ShipEffectsContinued/Sounds/thump";
 
         public string dockedClip = "ShipEffectsContinued/Sounds/docking";
         public string undockedClip = "ShipEffectsContinued/Sounds/docking";
