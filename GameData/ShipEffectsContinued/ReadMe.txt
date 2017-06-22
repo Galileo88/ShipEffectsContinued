@@ -20,6 +20,9 @@ If you're running KSP 1.1.x, please use version 1.0.5 of this mod instead.
 =========
 CHANGELOG
 =========
+1.0.8-1.0.9 | 06-22-17
+- Make sounds actually audible
+
 1.0.7-1.0.8 | 06-06-17
 - Compile against KSP 1.3.0 release.
 - All new sound effects.
