@@ -1,6 +1,6 @@
 ===============================
 Name: shipEffects SoundMod
-Version: 1.0.3-1.0.8.1
+Version: 1.0.3-1.0.8.2
 Original Author: Ensou - Maintained by Galileo
 ===============================
 
@@ -20,8 +20,11 @@ If you're running KSP 1.1.x, please use version 1.0.5 of this mod instead.
 =========
 CHANGELOG
 =========
-1.0.7-1.0.8.1 | 06-22-17
-- Made sounds actually audible
+1.0.8.1-1.0.8.2 | 06-22-17
+- Update version for 1.3.1
+
+1.0.8-1.0.8.1 | 06-22-17
+- Make sounds actually audible
 
 1.0.7-1.0.8 | 06-06-17
 - Compile against KSP 1.3.0 release.
