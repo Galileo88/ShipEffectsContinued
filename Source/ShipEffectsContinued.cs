@@ -11,7 +11,7 @@ namespace ShipEffectsContinued
     {
         //soundnames
         string small_rattles = "ShipEffectsContinued/Sounds/small_rattles";
-        string big_rattles = "ShipEffectsContinuedContinued/Sounds/big_rattles";
+        string big_rattles = "ShipEffectsContinued/Sounds/big_rattles";
         string rumble = "ShipEffectsContinued/Sounds/rumble";
         string vibrations = "ShipEffectsContinued/Sounds/vibrations";
         string stress_big = "ShipEffectsContinued/Sounds/metalstress";
