@@ -1,6 +1,6 @@
 ===============================
-Name: shipEffects SoundMod
-Version: 1.0.3-1.0.8.1
+Name: shipEffectsContinued SoundMod
+Version: 1.0.8.3
 Original Author: Ensou - Maintained by Galileo
 ===============================
 
@@ -20,6 +20,13 @@ If you're running KSP 1.1.x, please use version 1.0.5 of this mod instead.
 =========
 CHANGELOG
 =========
+1.0.8-2.0.8.3 | 10-20-17
+- Fix typo in code - Thanks Fwiffo
+- Updated assembly version
+
+1.0.8-1.0.8.1 | 10-10-17
+- recomplile for 1.3.1
+
 1.0.8-1.0.8.1 | 06-22-17
 - Make sounds actually audible
 
@@ -99,6 +106,8 @@ CHANGELOG
 - new sound loops
 - Added layers of sound
 - added engine thrust response
+
+Thank you to Ensou for creating the mod, and CoriW and Fwiffo for maintaining the mod and notletting it slip into obscurity! Without you guys this continuation couldn't be possible.
 
 =========
 LICENSING

@@ -13,3 +13,19 @@ c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipE
 c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\obj\Debug\ShipEffectsContinued.csprojResolveAssemblyReference.cache
 c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\obj\Debug\ShipEffectsContinued.dll
 c:\users\tavish\documents\visual studio 2015\Projects\ShipEffectsContinued\ShipEffectsContinued\obj\Debug\ShipEffectsContinued.pdb
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\ShipEffectsContinued.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\ShipEffectsContinued.pdb
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Assembly-CSharp.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\UnityEngine.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\KSPTrackIR.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\UnityEngine.UI.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\KSPAssets.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Mono.Cecil.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\TDx.TDxInput.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Mono.Security.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\UnityEngine.xml
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.csprojResolveAssemblyReference.cache
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.csproj.CoreCompileInputs.cache
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.pdb
