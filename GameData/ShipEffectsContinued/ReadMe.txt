@@ -1,6 +1,6 @@
 ===============================
 Name: shipEffectsContinued SoundMod
-Version: 1.0.8.3
+Version: 1.0.8.4
 Original Author: Ensou - Maintained by Galileo
 ===============================
 
@@ -14,13 +14,17 @@ INSTALLATION
 Delete previous installation
 Extract and merge the folder "GameData" folder with your existing "GameData" directory
 
-NOTE: This version is for KSP 1.2.x and 1.3.x
+NOTE: This version is for KSP 1.2.x - 1.4.x
 If you're running KSP 1.1.x, please use version 1.0.5 of this mod instead.
 
 =========
 CHANGELOG
 =========
-1.0.8-2.0.8.3 | 10-20-17
+1.0.8-1.0.8.4 | 04-01-18
+- Fix typo in code - Thanks Fwiffo
+- Compiled for 1.4.2
+
+1.0.8-1.0.8.3 | 10-20-17
 - Fix typo in code - Thanks Fwiffo
 - Updated assembly version
 

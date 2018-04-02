@@ -23,9 +23,10 @@ C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\UnityEngi
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\KSPAssets.dll
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Mono.Cecil.dll
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\TDx.TDxInput.dll
-C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Mono.Security.dll
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\UnityEngine.xml
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.csprojResolveAssemblyReference.cache
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.csproj.CoreCompileInputs.cache
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.dll
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.pdb
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Ionic.Zip.dll
+C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\RedShellSDK.dll
