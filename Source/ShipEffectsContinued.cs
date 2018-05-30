@@ -84,7 +84,7 @@ namespace ShipEffectsContinued
 
         bool doEngineThrust;
         bool onlyIVA = true;
-
+        bool onlyIfCrewed = true;
 
         void Start()
         {
@@ -125,6 +125,8 @@ namespace ShipEffectsContinued
             {
                 if (node.HasValue("OnlyInIVA"))
                     bool.TryParse(node.GetValue("OnlyInIVA"), out onlyIVA);
+                if (node.HasValue("OnlyIfCrewed"))
+                    bool.TryParse(node.GetValue("OnlyIfCrewed"), out onlyIfCrewed);
 
                 if (node.HasValue("masterVolume"))
                     float.TryParse(node.GetValue("masterVolume"), out masterVolume);
@@ -324,18 +326,22 @@ namespace ShipEffectsContinued
 
             bool isCrewed = false;
 
-            foreach (Part part in vessel.parts)
+            //don't search if not necessary
+            if (onlyIfCrewed)
             {
-                if (part.protoModuleCrew.Count >= 1)
+                foreach (Part part in vessel.parts)
                 {
-                    isCrewed = true;
+                    if (part.protoModuleCrew.Count >= 1)
+                    {
+                        isCrewed = true;
+                    }
                 }
             }
 
             if (!gamePaused)
             {
 
-                if (isCrewed && !MapView.MapIsEnabled && (onlyIVA == false || InternalCamera.Instance.isActive))
+                if ((!onlyIfCrewed || isCrewed) && !MapView.MapIsEnabled && (onlyIVA == false || InternalCamera.Instance.isActive))
                 {
                     //wind and pressure?
                     if (surfSpeed > 10 || vesselRot > 1.5f)
