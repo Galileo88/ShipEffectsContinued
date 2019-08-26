@@ -281,30 +281,33 @@ namespace ShipEffectsContinued
             {
                 foreach (PartModule module in part.Modules)
                 {
-                    if (module.moduleName.Contains("ModuleEnginesFX"))
+                    if (module.moduleName != null)
                     {
-
-                        ModuleEnginesFX e = module as ModuleEnginesFX;
-                        if (e != null && e.isOperational)
+                        if (module.moduleName.Contains("ModuleEnginesFX"))
                         {
 
-                            engineThrust += (e.finalThrust);
-                        }
-                        if (engineThrust > 0)
-                            doEngineThrust = true;
-                    }
-                    else if (module.moduleName.Contains("ModuleEngine"))
-                    {
+                            ModuleEnginesFX e = module as ModuleEnginesFX;
+                            if (e != null && e.isOperational)
+                            {
 
-                        ModuleEngines e = module as ModuleEngines;
-                        if (e != null && e.isOperational)
+                                engineThrust += (e.finalThrust);
+                            }
+                            if (engineThrust > 0)
+                                doEngineThrust = true;
+                        }
+                        else if (module.moduleName.Contains("ModuleEngine"))
                         {
 
-                            engineThrust += (e.finalThrust);
-                        }
+                            ModuleEngines e = module as ModuleEngines;
+                            if (e != null && e.isOperational)
+                            {
 
-                        if (engineThrust > 0)
-                            doEngineThrust = true;
+                                engineThrust += (e.finalThrust);
+                            }
+
+                            if (engineThrust > 0)
+                                doEngineThrust = true;
+                        }
                     }
                 }
             }
@@ -362,6 +365,7 @@ namespace ShipEffectsContinued
                     {
                         SoundFX(smallRattlesGroup, false);
                     }
+
                     if (vResist > 0.8 || vesselRot > 1.5f)
                     {
                         SoundFX(vibrationsGroup, ((vResist - 0.8f) / 2f) + ((vesselRot - 1.5f) / 6f), vVolCtrl, 35f, true);
@@ -370,6 +374,7 @@ namespace ShipEffectsContinued
                     {
                         SoundFX(vibrationsGroup, false);
                     }
+
                     if (vResist > 1 || vesselRot > 2.0f)
                     {
                         SoundFX(rumbleGroup, ((vResist - 1f) / 2f) + ((vesselRot - 2.0f) / 6f), rmVolCtrl, 180f, true);
@@ -378,6 +383,7 @@ namespace ShipEffectsContinued
                     {
                         SoundFX(rumbleGroup, false);
                     }
+
                     if (vResist > 4.0)
                     {
                         SoundFX(bigRattlesGroup, (vResist - 5f) / 4f, rVolCtrl, 90f, true);
@@ -386,6 +392,7 @@ namespace ShipEffectsContinued
                     {
                         SoundFX(bigRattlesGroup, false);
                     }
+
                     if (vResist > 8.0)
                     {
                         SoundFX(stressBigGroup, (vResist - 6f) / 6f, sVolCtrl, 90f, true);
@@ -437,11 +444,10 @@ namespace ShipEffectsContinued
                     SoundFX(rumbleGroup, false);
                     SoundFX(stressBigGroup, false);
                 }
-
-
             }
             else
             {
+
                 SoundFX(atmosphereGroup, false);
                 SoundFX(smallRattlesGroup, false);
                 SoundFX(vibrationsGroup, false);
@@ -453,7 +459,6 @@ namespace ShipEffectsContinued
             engineMicro = 0;
             engineThrust = 0;
             engineAccel = 0;
-
         }
 
         public void onGamePaused()
