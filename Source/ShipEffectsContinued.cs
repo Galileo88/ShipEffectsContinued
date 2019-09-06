@@ -121,8 +121,14 @@ namespace ShipEffectsContinued
 
         void LoadSettings()
         {
+            bool settingsRead = false;
             foreach (ConfigNode node in GameDatabase.Instance.GetConfigNodes("SHIPEFFECTS_SETTINGS"))
             {
+                if (settingsRead)
+                {
+                    Debug.Log("ShipEffectscontinued: Error: Multiple nodes of SHIPEFFECTS_SETTINGS found, only the first is being used");
+                    return;
+                }
                 if (node.HasValue("OnlyInIVA"))
                     bool.TryParse(node.GetValue("OnlyInIVA"), out onlyIVA);
                 if (node.HasValue("OnlyIfCrewed"))
@@ -149,7 +155,7 @@ namespace ShipEffectsContinued
                     float.TryParse(node.GetValue("ReEntryMultiplier"), out reEntryMultiplier);
 
                 Debug.Log("ShipEffectsContinued Volume Settings loaded");
-                break;
+                //break;
             }
         }
 

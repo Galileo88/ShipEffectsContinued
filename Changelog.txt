@@ -1,0 +1,6 @@
+
+1.0.9
+	Adoption by LinuxGuruGamer
+	Added InstallChecker
+	Added AssemblyVersion.tt
+	Added check for multiple SHIPEFFECTS_SETTINGS nodes
