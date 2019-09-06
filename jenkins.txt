@@ -31,7 +31,7 @@
 1:ShipEffectsContinued, ShipEffectsContinued.version
 
 # 2:PROJNAME, PROJFILE, VERSIONFILE, PLUGINSFOLDER
-2:ShipEffectsContinued,ShipEffectsContinued/ShipEffectsContinued.csproj,ShipEffectsContinued.version,GameData/ShipEffectsContinued/Plugins
+2:ShipEffectsContinued,Source/ShipEffectsContinued.csproj,ShipEffectsContinued.version,GameData/ShipEffectsContinued/Plugins
 
 # 3:SOURCEFILE, DESTDIR
 3:ShipEffectsContinued.version,GameData/ShipEffectsContinued 
