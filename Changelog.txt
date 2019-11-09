@@ -1,3 +1,10 @@
+ChangeLog
+
+1.0.10
+	Updated for KSP 1.8
+
+1.0.9.1
+	Fixed Installchecker string
 
 1.0.9
 	Adoption by LinuxGuruGamer
@@ -5,5 +12,3 @@
 	Added AssemblyVersion.tt
 	Added check for multiple SHIPEFFECTS_SETTINGS nodes
 
-1.0.9.1
-	Fixed Installchecker string
