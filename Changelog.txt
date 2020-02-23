@@ -1,5 +1,8 @@
 ChangeLog
 
+1.0.11
+	Moved settings from cfg file to settings page
+
 1.0.10
 	Updated for KSP 1.8
 
