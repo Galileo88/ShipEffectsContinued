@@ -32,6 +32,6 @@ C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\Ionic.Zip
 C:\Users\Tavish\Documents\GitHub\ShipEffectsContinued\Source\bin\Debug\RedShellSDK.dll
 D:\Users\jbb\github\ShipEffectsContinued\Source\bin\Debug\ShipEffectsContinued.dll
 D:\Users\jbb\github\ShipEffectsContinued\Source\bin\Debug\ShipEffectsContinued.pdb
+D:\Users\jbb\github\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.csproj.CoreCompileInputs.cache
 D:\Users\jbb\github\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.dll
 D:\Users\jbb\github\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.pdb
-D:\Users\jbb\github\ShipEffectsContinued\Source\obj\Debug\ShipEffectsContinued.csprojAssemblyReference.cache
