@@ -166,7 +166,11 @@ namespace ShipEffectsContinued
 
         public bool createGroup(FXGroup group, Vessel vessel, string clip, bool loop, bool fxBypass)
         {
-            group.audio = vessel.gameObject.AddComponent<AudioSource>();
+            GameObject audioGroup = new GameObject("ShipEffects");
+            audioGroup.transform.parent = vessel.gameObject.transform;
+
+            group.audio = audioGroup.AddComponent<AudioSource>();
+
             group.audio.clip = GameDatabase.Instance.GetAudioClip(clip);
             group.audio.Stop();
             group.audio.loop = loop;
