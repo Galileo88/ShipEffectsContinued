@@ -1,5 +1,9 @@
 ChangeLog
 
+1.0.11.2
+	Thanks to github user @HansAcker for this:
+		Isolate SE's AudioSource objects from vessel.gameObject. Fixes the repeating decoupler sound where KSP would overwrite one of our AudioSources.
+
 1.0.11.1
 	Added AssemblyFileVersion
 	Updated version file for 1.12
