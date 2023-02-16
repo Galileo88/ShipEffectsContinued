@@ -37,6 +37,7 @@ namespace ShipEffectsContinued
         FXGroup dockedGroup = new FXGroup("DockFXGroup");
         FXGroup undockedGroup = new FXGroup("DockFXGroup");
 
+#if false
         //Settings
         public float masterVolume = 1f;
         public float rVolCtrl = 1f;
@@ -48,7 +49,7 @@ namespace ShipEffectsContinued
 
         public float resistMultiplier = 1.0f;
         public float reEntryMultiplier = 8.0f;
-
+#endif
         //sets
         bool rumbleSet;
         bool smallRattlesSet;
@@ -83,8 +84,10 @@ namespace ShipEffectsContinued
         float counter = 0;
 
         bool doEngineThrust;
+#if false
         bool onlyIVA = true;
         bool onlyIfCrewed = true;
+#endif
 
         void Start()
         {
@@ -93,8 +96,9 @@ namespace ShipEffectsContinued
                 return;
 
             LoadGroups();
-
+#if false
             LoadSettings();
+#endif
 
             GameEvents.onPartCouple.Add(this.onVesselDock);
             GameEvents.onPartUndock.Add(this.onVesselUndock);
@@ -118,11 +122,17 @@ namespace ShipEffectsContinued
             dockedSet = createGroup(dockedGroup, vessel, dockedClip, false, true);
             undockedSet = createGroup(undockedGroup, vessel, undockedClip, false, true);
         }
-
+#if false
         void LoadSettings()
         {
+            bool settingsRead = false;
             foreach (ConfigNode node in GameDatabase.Instance.GetConfigNodes("SHIPEFFECTS_SETTINGS"))
             {
+                if (settingsRead)
+                {
+                    Debug.Log("ShipEffectscontinued: Error: Multiple nodes of SHIPEFFECTS_SETTINGS found, only the first is being used");
+                    return;
+                }
                 if (node.HasValue("OnlyInIVA"))
                     bool.TryParse(node.GetValue("OnlyInIVA"), out onlyIVA);
                 if (node.HasValue("OnlyIfCrewed"))
@@ -149,13 +159,18 @@ namespace ShipEffectsContinued
                     float.TryParse(node.GetValue("ReEntryMultiplier"), out reEntryMultiplier);
 
                 Debug.Log("ShipEffectsContinued Volume Settings loaded");
-                break;
+                //break;
             }
         }
+#endif
 
         public bool createGroup(FXGroup group, Vessel vessel, string clip, bool loop, bool fxBypass)
         {
-            group.audio = vessel.gameObject.AddComponent<AudioSource>();
+            GameObject audioGroup = new GameObject("ShipEffects");
+            audioGroup.transform.parent = vessel.gameObject.transform;
+
+            group.audio = audioGroup.AddComponent<AudioSource>();
+
             group.audio.clip = GameDatabase.Instance.GetAudioClip(clip);
             group.audio.Stop();
             group.audio.loop = loop;
@@ -179,7 +194,7 @@ namespace ShipEffectsContinued
                 if (!gamePaused && !fx.audio.isPlaying && play == true)
                 {
                     fx.audio.Play();
-                    fx.audio.volume = (Mathf.Clamp(volume, 0, 1f) * volCtrl) * masterVolume;
+                    fx.audio.volume = (Mathf.Clamp(volume, 0, 1f) * volCtrl) * HighLogic.CurrentGame.Parameters.CustomParams<SE>().masterVolume;
                 }
                 else
                 {
@@ -265,7 +280,7 @@ namespace ShipEffectsContinued
 
             if (burnDownTime > 0)
             {
-                vResist += (aeroFx.FxScalar * burnDownTime * reEntryMultiplier);
+                vResist += (aeroFx.FxScalar * burnDownTime * HighLogic.CurrentGame.Parameters.CustomParams<SE>().reEntryMultiplier);
 
                 burnDownTime -= Time.deltaTime;
             }
@@ -281,30 +296,33 @@ namespace ShipEffectsContinued
             {
                 foreach (PartModule module in part.Modules)
                 {
-                    if (module.moduleName.Contains("ModuleEnginesFX"))
+                    if (module.moduleName != null)
                     {
-
-                        ModuleEnginesFX e = module as ModuleEnginesFX;
-                        if (e != null && e.isOperational)
+                        if (module.moduleName.Contains("ModuleEnginesFX"))
                         {
 
-                            engineThrust += (e.finalThrust);
-                        }
-                        if (engineThrust > 0)
-                            doEngineThrust = true;
-                    }
-                    else if (module.moduleName.Contains("ModuleEngine"))
-                    {
+                            ModuleEnginesFX e = module as ModuleEnginesFX;
+                            if (e != null && e.isOperational)
+                            {
 
-                        ModuleEngines e = module as ModuleEngines;
-                        if (e != null && e.isOperational)
+                                engineThrust += (e.finalThrust);
+                            }
+                            if (engineThrust > 0)
+                                doEngineThrust = true;
+                        }
+                        else if (module.moduleName.Contains("ModuleEngine"))
                         {
 
-                            engineThrust += (e.finalThrust);
-                        }
+                            ModuleEngines e = module as ModuleEngines;
+                            if (e != null && e.isOperational)
+                            {
 
-                        if (engineThrust > 0)
-                            doEngineThrust = true;
+                                engineThrust += (e.finalThrust);
+                            }
+
+                            if (engineThrust > 0)
+                                doEngineThrust = true;
+                        }
                     }
                 }
             }
@@ -322,12 +340,12 @@ namespace ShipEffectsContinued
 
             vResist += engineAccel;
 
-            vResist *= resistMultiplier;
+            vResist *= HighLogic.CurrentGame.Parameters.CustomParams<SE>().resistMultiplier;
 
             bool isCrewed = false;
 
             //don't search if not necessary
-            if (onlyIfCrewed)
+            if (HighLogic.CurrentGame.Parameters.CustomParams<SE>().OnlyIfCrewed)
             {
                 foreach (Part part in vessel.parts)
                 {
@@ -341,12 +359,12 @@ namespace ShipEffectsContinued
             if (!gamePaused)
             {
 
-                if ((!onlyIfCrewed || isCrewed) && !MapView.MapIsEnabled && (onlyIVA == false || InternalCamera.Instance.isActive))
+                if ((!HighLogic.CurrentGame.Parameters.CustomParams<SE>().OnlyIfCrewed || isCrewed) && !MapView.MapIsEnabled && (HighLogic.CurrentGame.Parameters.CustomParams<SE>().OnlyInIVA == false || InternalCamera.Instance.isActive))
                 {
                     //wind and pressure?
                     if (surfSpeed > 10 || vesselRot > 1.5f)
                     {
-                        SoundFX(atmosphereGroup, ((atmDensity * surfSpeed - 10f) / 80f) + ((vesselRot - 1.5f) / 7.0f * atmDensity), aVolCtrl, 90f, true);
+                        SoundFX(atmosphereGroup, ((atmDensity * surfSpeed - 10f) / 80f) + ((vesselRot - 1.5f) / 7.0f * atmDensity), HighLogic.CurrentGame.Parameters.CustomParams<SE>().atmosphereVolume / 100f, 90f, true);
                     }
                     else
                     {
@@ -356,39 +374,43 @@ namespace ShipEffectsContinued
                     //dynamics
                     if (vResist > 0.5)
                     {
-                        SoundFX(smallRattlesGroup, (vResist - 0.5f) / 4f, rVolCtrl, 90f, true);
+                        SoundFX(smallRattlesGroup, (vResist - 0.5f) / 4f, HighLogic.CurrentGame.Parameters.CustomParams<SE>().rattleVolume / 100f, 90f, true);
                     }
                     else
                     {
                         SoundFX(smallRattlesGroup, false);
                     }
+
                     if (vResist > 0.8 || vesselRot > 1.5f)
                     {
-                        SoundFX(vibrationsGroup, ((vResist - 0.8f) / 2f) + ((vesselRot - 1.5f) / 6f), vVolCtrl, 35f, true);
+                        SoundFX(vibrationsGroup, ((vResist - 0.8f) / 2f) + ((vesselRot - 1.5f) / 6f), HighLogic.CurrentGame.Parameters.CustomParams<SE>().vibrationVolume / 100f, 35f, true);
                     }
                     else
                     {
                         SoundFX(vibrationsGroup, false);
                     }
+
                     if (vResist > 1 || vesselRot > 2.0f)
                     {
-                        SoundFX(rumbleGroup, ((vResist - 1f) / 2f) + ((vesselRot - 2.0f) / 6f), rmVolCtrl, 180f, true);
+                        SoundFX(rumbleGroup, ((vResist - 1f) / 2f) + ((vesselRot - 2.0f) / 6f), HighLogic.CurrentGame.Parameters.CustomParams<SE>().rumbleVolume / 100f, 180f, true);
                     }
                     else
                     {
                         SoundFX(rumbleGroup, false);
                     }
+
                     if (vResist > 4.0)
                     {
-                        SoundFX(bigRattlesGroup, (vResist - 5f) / 4f, rVolCtrl, 90f, true);
+                        SoundFX(bigRattlesGroup, (vResist - 5f) / 4f, HighLogic.CurrentGame.Parameters.CustomParams<SE>().rattleVolume / 100f, 90f, true);
                     }
                     else
                     {
                         SoundFX(bigRattlesGroup, false);
                     }
+
                     if (vResist > 8.0)
                     {
-                        SoundFX(stressBigGroup, (vResist - 6f) / 6f, sVolCtrl, 90f, true);
+                        SoundFX(stressBigGroup, (vResist - 6f) / 6f, HighLogic.CurrentGame.Parameters.CustomParams<SE>().stressVolume / 100f, 90f, true);
                     }
                     else
                     {
@@ -414,11 +436,11 @@ namespace ShipEffectsContinued
                         {
                             if (vResist > 2.0f && vResist < 5.0)
                             {
-                                SoundFX(thumpLowGroup, (vResist - 2.0f) / 3f, tVolCtrl, 180f, true);
+                                SoundFX(thumpLowGroup, (vResist - 2.0f) / 3f, HighLogic.CurrentGame.Parameters.CustomParams<SE>().thumpVolume / 100f, 180f, true);
                             }
                             if (vResist > 4.0f && vResist < 8.0)
                             {
-                                SoundFX(thumpHeavyGroup, (vResist - 4.0f) / 4f, tVolCtrl, 180f, true);
+                                SoundFX(thumpHeavyGroup, (vResist - 4.0f) / 4f, HighLogic.CurrentGame.Parameters.CustomParams<SE>().thumpVolume / 100f, 180f, true);
                             }
                         }
                     }
@@ -437,11 +459,10 @@ namespace ShipEffectsContinued
                     SoundFX(rumbleGroup, false);
                     SoundFX(stressBigGroup, false);
                 }
-
-
             }
             else
             {
+
                 SoundFX(atmosphereGroup, false);
                 SoundFX(smallRattlesGroup, false);
                 SoundFX(vibrationsGroup, false);
@@ -453,7 +474,6 @@ namespace ShipEffectsContinued
             engineMicro = 0;
             engineThrust = 0;
             engineAccel = 0;
-
         }
 
         public void onGamePaused()
